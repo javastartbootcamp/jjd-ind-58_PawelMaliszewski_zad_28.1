@@ -22,9 +22,7 @@ public class CategoryService {
     }
 
     public List<String> listOfCategoryNames() {
-        List<String> categoryNames = new ArrayList<>();
-        categoryRepository.findAll().forEach( category -> categoryNames.add(category.getName()));
-        return categoryNames;
+        return categoryRepository.getCategoryNamesFromDataBase();
     }
 
     public CategoryDto insertCategory(CategoryDto categoryDto) {
