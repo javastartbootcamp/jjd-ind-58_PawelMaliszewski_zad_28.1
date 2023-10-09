@@ -13,7 +13,6 @@ public class CategoryMapper {
 
     public CategoryDto convertToDtoCategory(Category category) {
         CategoryDto categoryDto = new CategoryDto();
-        categoryDto.setId(category.getId());
         categoryDto.setName(category.getName());
         categoryDto.setDescription(category.getDescription());
         categoryDto.setOffers(categoryRepository.countOffersByCategoryId(category.getId()));
@@ -22,7 +21,6 @@ public class CategoryMapper {
 
     public Category convertToCategory(CategoryDto categoryDto) {
         Category category = new Category();
-        category.setId(categoryDto.getId());
         category.setName(categoryDto.getName());
         category.setDescription(categoryDto.getDescription());
         return category;

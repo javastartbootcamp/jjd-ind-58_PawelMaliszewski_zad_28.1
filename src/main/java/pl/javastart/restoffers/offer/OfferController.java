@@ -16,11 +16,8 @@ public class OfferController {
 
     @GetMapping()
     ResponseEntity<List<OfferDto>> getDtoOffers(@RequestParam(required = false) String title) {
-        if (title == null || offerService.getOfferByTitle(title).isEmpty()) {
-            if (offerService.getAllDtoOffers().isEmpty()) {
-                return ResponseEntity.notFound().build();
-            }
-            return ResponseEntity.ok(offerService.getAllDtoOffers());
+        if (title == null) {
+                return ResponseEntity.ok(offerService.getAllDtoOffers());
         }
         return ResponseEntity.ok(offerService.getOfferByTitle(title));
     }
